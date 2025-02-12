@@ -1,22 +1,22 @@
 {
-  function twoSum(nums, target) {
-    let map = new Map();
+  function reversuNumber(argNum) {
+    let num = Math.abs(argNum);
+    if (num === 0) return num;
     
-    for (let i = 0; i < nums.length; i++) {
-      let diff = target - nums[i];
-      
-      if (map.has(diff)) {
-        return [map.get(diff), i];
-      }
-      
-      map.set(nums[i], i);
+    const nums = [];
+    while (num > 0) {
+      const remainder = Math.abs(num) % 10;
+      // console.log(`remainder: `, remainder);
+      nums.push(remainder);
+      num = Math.trunc(num / 10);
+      // console.log(`num: `, num);
     }
-    
-    return [];
+    const result = Number(nums.join(""));
+    return argNum < 0 ? 0 - result : result;
   }
   
-  let nums = [2, 7, 11, 15];
-  let target = 9;
-  
-  console.log(twoSum(nums, target));
+  console.log(`-321:`, reversuNumber(-321));
+  console.log(`321:`, reversuNumber(321));
+  console.log(`0:`, reversuNumber(0));
+  console.log(`456:`, reversuNumber(456));
 }

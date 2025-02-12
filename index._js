@@ -1,4 +1,25 @@
+{
+  function reversuNumber(argNum) {
+    let num = Math.abs(argNum);
+    if (num === 0) return num;
 
+    const nums = [];
+    while (num > 0) {
+      const remainder = Math.abs(num) % 10;
+      // console.log(`remainder: `, remainder);
+      nums.push(remainder);
+      num = Math.trunc(num / 10);
+      // console.log(`num: `, num);
+    }
+    const result = Number(nums.join(""));
+    return argNum < 0 ? 0 - result : result;
+  }
+
+  console.log(`-321:`, reversuNumber(-321));
+  console.log(`321:`, reversuNumber(321));
+  console.log(`0:`, reversuNumber(0));
+  console.log(`456:`, reversuNumber(456));
+}
 
 {
   function twoSum(nums, target) {
@@ -24,34 +45,39 @@
 }
 
 {
- function memoize(fn) {
-   const cache = new Map()
-   //... rest - собирает в массив все аргументы
-   return function (...args){
-    const key = JSON.stringify(args)
-     const timerLabel = `Execution Time for ${key}`
-     console.time(timerLabel)
-     if(cache.has(key)){
-       console.log('Returning from cache...');
-       console.timeEnd(timerLabel)
-       return cache.get(key)
-     }
+function memoize(fn) {
+    const cache = new Map();
 
-     // spread
-     const result = fn(...args)
-     cache.set(key, result)
-     console.timeEnd(timerLabel)
-     return result
-   }
- }
+    return function (...args) {
+      const key = JSON.stringify(args);
 
- function  add(a,b){
-   console.log('calc...');
-   return a+b
- }
+      if (cache.has(key)) {
 
- const memoizedFunc = memoize(add)
-  console.log(memoizedFunc(1,2));
-  console.log(memoizedFunc(1,2));
-  console.log(memoizedFunc(3,4));
+        console.log(`${fn} with args ${args} got from cache..`);
+        return cache.get(key);
+      }
+
+      const value = fn(...args);
+      console.log(`${fn} with args ${args} saved to cache with result: ${value}`);
+      cache.set(key, value);
+      return value;
+    };
+  }
+
+  function add(a, b) {
+    return a + b;
+  }
+
+  const memoizedFunc = memoize(add);
+  console.log(memoizedFunc(1, 2));
+  console.log(memoizedFunc(1, 2));
+  console.log(`==========`);
+  console.log(memoizedFunc(3, 3));
+  console.log(memoizedFunc(3, 3));
+  console.log(memoizedFunc(3, 4));
+  console.log(memoizedFunc(3, 4));
+  console.log(memoizedFunc(3, 5));
+  console.log(memoizedFunc(3, 6));
+  console.log(memoizedFunc(3, 7));
+  console.log(`==========`);
 }
