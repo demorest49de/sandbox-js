@@ -1,4 +1,83 @@
+{
+  function foo() {
+    const objKate = {
+      name: 'Kate',
+      age: 24,
+      f() {
+        console.log(this);
+        (function innner() {
+          console.log(this);
+        })();// так же как сеттаймаут
+      }
+    };
 
+    objKate.f();
+  }
+
+  foo();
+
+  objKate.f();
+}
+
+'use strict';
+function test() {
+  console.log(this);  // undefined, потому что функция не вызвана как метод
+}
+test.bind(Window)();
+
+{
+  const obj = {
+    name: 'Alice',
+    greet: function () {
+      // 1. const self = this -  сохранить в переменную
+      // 2. привязать через .bind(this)
+      // 3. объявить через стрелочную функцию
+      setTimeout(function () {
+          console.log('Hello, ' + this.name); // Что выведет?
+        }
+        .bind(this)
+        , 1000);
+    }
+  };
+
+  obj.greet();
+}
+
+
+{
+  /**
+   * @param {integer} init
+   * @return { increment: Function, decrement: Function, reset: Function }
+   */
+  var createCounter = function (init) {
+    let currentValue = init;
+    return {
+      increment: function () {
+        return currentValue += 1;
+      },
+      decrement: function () {
+        return currentValue -= 1;
+      },
+      reset: function () {
+        currentValue = init;
+        return currentValue;
+      },
+    };
+  };
+
+  const counter = createCounter(5);
+
+  console.log(counter.increment());
+  console.log(counter.reset());
+  console.log(counter.decrement());
+
+  /**
+   * const counter = createCounter(5)
+   * counter.increment(); // 6
+   * counter.reset(); // 5
+   * counter.decrement(); // 4
+   */
+}
 
 {
   function reversuNumber(argNum) {
