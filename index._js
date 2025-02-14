@@ -1,5 +1,57 @@
 
 
+{
+  /**
+   * @param {number[]} arr
+   * @param {Function} fn
+   * @param {number} init
+   * @return {number[]}
+   */
+  var filter = function (arr, fn, init) {
+    const newArray = [];
+    for (let i = 0; i < arr.length; i++) {
+      init = fn(init, arr[i]);
+    }
+    return init;
+  };
+
+  const fn1 = (acc, cur) => acc + cur;
+  console.log(filter([1, 2, 3, 4], fn1, 0));
+
+  const fn2 = (acc, cur) => acc + cur * cur;
+  console.log(filter([1, 2, 3, 4], fn2, 100));
+
+  const fn3 = (acc, cur) => 0;
+  console.log(filter([], fn3, 25));
+}
+
+{
+  /**
+   * @param {number[]} arr
+   * @param {Function} fn
+   * @return {number[]}
+   */
+  var filter = function (arr, fn) {
+    const newArray = [];
+    for (let i = 0; i < arr.length; i++) {
+      if(fn(arr[i], i)) {
+        newArray.push(arr[i]);
+      }
+    }
+    return newArray;
+  };
+
+  const array = [0,10, 20, 30];
+  const fn1 = (n) => n > 10;
+  console.log(filter(array, fn1));
+
+  const fn2 = (n, i) => i === 0;
+  console.log(filter(array, fn2));
+
+  const fn3 = (n) => n + 1;
+  console.log(filter(array, fn3));
+}
+
 // без массива зависимостей - юзЕффект вызовется только при 1 рендере
 // дидМаунт, дидАпдейт, виллАнмаунт
 // пустой массив означает что эффект сработает 1 раз - это  дидМаунт
