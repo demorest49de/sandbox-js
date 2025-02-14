@@ -1,3 +1,68 @@
+
+
+// без массива зависимостей - юзЕффект вызовется только при 1 рендере
+// дидМаунт, дидАпдейт, виллАнмаунт
+// пустой массив означает что эффект сработает 1 раз - это  дидМаунт
+// Непустой массив означает что эффект сработает 1 раз - это  дидАпдейт
+// Функция очистки которую возвращает юзЕффект - это  виллАнмаунт
+
+{
+  /**
+   * @param {number[]} arr
+   * @param {Function} fn
+   * @return {number[]}
+   */
+  var map = function (arr, fn) {
+    const newArray = [];
+    for (let i = 0; i < arr.length; i++) {
+      // если в колбек не передаются аргументы то они станут undefined
+      newArray.push(fn(arr[i], i));
+    }
+    return newArray;
+  };
+
+  const array = [1, 2, 3, 4];
+  const fn1 = (n) => n + 1;
+  console.log(map(array, fn1));
+
+  const fn2 = (n, i) => n + i;
+  console.log(map(array, fn2));
+
+  const fn3 = () => 42;
+  console.log(map(array, fn3));
+}
+
+// задача на промисы и асинхроноостбь
+{
+  async function asyncFunction1() {
+    return new Promise(resolve => setTimeout(() => resolve('First done'), 1000));
+  }
+
+  async function asyncFunction2() {
+    return new Promise(resolve => setTimeout(() => resolve('Second done'), 500));
+  }
+
+  async function asyncFunction3() {
+    return new Promise(resolve => setTimeout(() => resolve('Third done'), 1500));
+  }
+
+  const asyncFunctions = [asyncFunction1, asyncFunction2, asyncFunction3];
+
+  async function executeAsyncFunctions(functions) {
+    const arrRes = []
+    for (let i = 0; i < functions.length; i++) {
+      const res = await  functions[i]()
+      arrRes.push(res)
+    }
+    return arrRes
+  }
+
+// Вызываем функцию и получаем результат
+  executeAsyncFunctions(asyncFunctions).then(console.log);
+// Ожидаемый результат: ["First done", "Second done", "Third done"]
+
+}
+
 {
   function foo() {
     const objKate = {
