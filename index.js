@@ -71,28 +71,73 @@
 // reduce((acc, el) => {}, 0 - опциональное значение
 // по умолчанию, может быть любого типа);
 
-const people = [
-  { name: 'Alice', age: 25 },
-  { name: 'Bob', age: 30 },
-  { name: 'Charlie', age: 22 },
-]; // {totalNames: [...], totalAge: ...}
+// const people = [
+//   { name: 'Alice', age: 25 },
+//   { name: 'Bob', age: 30 },
+//   { name: 'Charlie', age: 22 },
+// ]; // {totalNames: [...], totalAge: ...}
+//
+// const res = people.reduce(
+//   (acc, person) => {
+//     // console.log('person', person);
+//     acc.totalNames.push(person.name);
+//     acc.totalAge += person.age;
+//     // console.log('acc: ', acc);
+//     return acc;
+//   },
+//   { totalNames: [], totalAge: 0 }
+// );
+//
+// console.log(res);
 
-const res = people.reduce(
-  (acc, person) => {
-    // console.log('person', person);
-    acc.totalNames.push(person.name);
-    acc.totalAge += person.age;
-    // console.log('acc: ', acc);
-    return acc;
-  },
-  { totalNames: [], totalAge: 0 }
-);
+// статические свойства объекта -
+// они задаются при создании
 
-console.log(res);
+// const fruit = {
+//   color: 'red',
+//   taste: "delicious"
+// };
 
+// динамические свойства объекта -
+// они вычисляются в процессе выполнения кода
 
+// const objDynamic = {
+//   [key]: value
+// };
 
+// function createObject(key, value) {
+//   return {[key]: value};
+// }
+//
+// const obj = createObject('car', 'AUDI');
+// console.log(' obj: ', obj);
 
+// кейс из практики
+
+// 1. переменные со статусами
+const STATUS_BUSY = "busy";
+const STATUS_READY = "ready";
+
+// 2. объект с вычисляемыми ключами
+
+const STATUS_LABELS = {
+  [STATUS_BUSY]: "занято",
+  [STATUS_READY]: "свободно",
+};
+
+// 3. с БД приходит массив с объектами
+const drivers = [
+  {name: "павел", status: "ready"},
+  {name: "виктор", status: "busy"},
+];
+
+//4. приведение статусов в другой вид
+const driversStatuses = drivers.map(({name, status}) => {
+  console.log(' `status`: ', status);
+  return {name, status: STATUS_LABELS[status]};
+});
+
+console.log(' driversStatuses: ', driversStatuses);
 
 
 // tipi dannih
