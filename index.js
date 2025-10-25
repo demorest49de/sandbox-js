@@ -188,33 +188,84 @@ function randomInt(min, max) {
 // console.log(' sum,subtr, mult, div: ', sum, subtr, mult, div);
 
 
-const person = {
-  name: 'Kirill',
-  age: 24,
-  adress: {
-    country: 'Poland',
-    city: 'Warsaw',
-  },
-};
+// const person = {
+//   name: 'Kirill',
+//   age: 24,
+//   adress: {
+//     country: 'Poland',
+//     city: 'Warsaw',
+//   },
+// };
+//
+// const name = 'Bob';
+// const {
+//   name: newName,
+//   age,
+//   car,
+//   adress:
+//     {
+//       city: myCity,
+//       country: myCountry
+//     }
+// } = person;
+//
+// console.log('name', name);
+// console.log('newName', newName);
+// console.log('age', age);
+// console.log('car key', car);
+// console.log('adress', adress);
 
-const name = 'Bob';
-const {
-  name: newName,
-  age,
-  car,
-  adress:
-    {
-      city: myCity,
-      country: myCountry
-    }
-} = person;
+/*
+C(R)UD
+C - CREATE - POST { NAME: "NAME", ID: 1 }
+R - READ GET
+U - UPDATE FILTER UPDATE, PUTCH
+D - DELETE
+ */
 
-console.log('name', name);
-console.log('newName', newName);
-console.log('age', age);
-console.log('car key', car);
-console.log('adress', adress);
+// const users = [
+//   {
+//     id: 1,
+//     name: 'v',
+//     isStud: true
+//   },
+// ]
 
+// const user = {
+//   id:2,
+//   name: 'T',
+//   isStud: true
+// }
+
+// create
+// // const newJoinedArray = [...users, user];
+// const newJoinedArray = [...users].concat(user); // 2 sposob
+// console.log(' newJoinedArray: ', newJoinedArray);
+
+
+// Update
+const users = [{
+  id: 1, name: 'vlad', isStud: true
+}, {
+  id: 2, name: 'dennis', isStud: true
+}, {
+  id: 3, name: 'viktor', isStud: true
+},];
+
+const updUsers = users.map((user) => {
+  if (user.name === 'dennis') {
+    return {...user, isStud: false};
+  } else {
+    return user;
+  }
+});
+
+console.log(' updUsers: ', updUsers);
+
+// delete
+const usersWithoutDeleted =
+  users.filter(user => user.id !== 3);
+console.log(' deletedUsers: ', usersWithoutDeleted);
 
 
 
