@@ -39,7 +39,27 @@
 
 // splice
 // udalenie elementov
-let arr = ['a', 'b', 'c', 'd', 'e'];
-console.log('source arr: ', arr);
-arr.splice(1, 3);// 1 param - s kakogo elem-ta, 2 param - skolko elems udalyaem
-console.log('result arr: ', arr);
+// let arr = ['a', 'b', 'c', 'd', 'e'];
+// console.log('source arr: ', arr);
+// arr.splice(1, 3);// 1 param - s kakogo elem-ta, 2 param - skolko elems udalyaem
+// console.log('result arr: ', arr);
+
+// NE udalenie elementov, a dobavlenie elementov
+// const arr = ['a', 'b', 'c', 'd', 'e'];
+// console.log('source arr: ', arr);
+// // arr.splice(1, 0, "2", "3", "test");
+// const addData = ['4', '5', '6'];
+// arr.splice(1, 0, ...addData);
+// // 1 param - s kakogo elem-ta, 2 param - 0 tk ne udalyaem nichego
+// // 3 param - dobavlayem elems. mozhno spreadom raskatat' zdes'.
+// console.log('result arr: ', arr);
+
+
+
+
+
+
+
+
+
+
