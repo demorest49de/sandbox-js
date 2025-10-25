@@ -54,13 +54,45 @@
 // // 3 param - dobavlayem elems. mozhno spreadom raskatat' zdes'.
 // console.log('result arr: ', arr);
 
-const arr = ['a', 'b', 'c', 'd', 'e'];
-console.log('source arr: ', arr);
-arr.splice(-3, 2);
-// 1 param - s kakogo elem-ta, 2 param - skolko udalyaem
-// если у 1 параметра мы ставим минус, значит начинаем осчитывать
-// с конца массива сколько-то элементов
-console.log('result arr: ', arr);
+// const arr = ['a', 'b', 'c', 'd', 'e'];
+// console.log('source arr: ', arr);
+// arr.splice(-3, 2);
+// // 1 param - s kakogo elem-ta, 2 param - skolko udalyaem
+// // если у 1 параметра мы ставим минус, значит начинаем осчитывать
+// // с конца массива сколько-то элементов
+// console.log('result arr: ', arr);
+// со сплайсом мы можем как добавлять объекты так и удалять
+
+// toSpliced() - тоже самое что и splice() но иммутабельный
+// поддерживается с определенной версии js
+
+// reduce
+
+// reduce((acc, el) => {}, 0 - опциональное значение
+// по умолчанию, может быть любого типа);
+
+const people = [
+  { name: 'Alice', age: 25 },
+  { name: 'Bob', age: 30 },
+  { name: 'Charlie', age: 22 },
+]; // {totalNames: [...], totalAge: ...}
+
+const res = people.reduce(
+  (acc, person) => {
+    // console.log('person', person);
+    acc.totalNames.push(person.name);
+    acc.totalAge += person.age;
+    // console.log('acc: ', acc);
+    return acc;
+  },
+  { totalNames: [], totalAge: 0 }
+);
+
+console.log(res);
+
+
+
+
 
 
 // tipi dannih
