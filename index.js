@@ -49,10 +49,18 @@
 // console.log('source arr: ', arr);
 // // arr.splice(1, 0, "2", "3", "test");
 // const addData = ['4', '5', '6'];
-// arr.splice(1, 0, ...addData);
+// arr.splice(1, 3, ...addData);
 // // 1 param - s kakogo elem-ta, 2 param - 0 tk ne udalyaem nichego
 // // 3 param - dobavlayem elems. mozhno spreadom raskatat' zdes'.
 // console.log('result arr: ', arr);
+
+const arr = ['a', 'b', 'c', 'd', 'e'];
+console.log('source arr: ', arr);
+arr.splice(-3, 2);
+// 1 param - s kakogo elem-ta, 2 param - skolko udalyaem
+// если у 1 параметра мы ставим минус, значит начинаем осчитывать
+// с конца массива сколько-то элементов
+console.log('result arr: ', arr);
 
 
 // tipi dannih
@@ -244,28 +252,28 @@ D - DELETE
 
 
 // Update
-const users = [{
-  id: 1, name: 'vlad', isStud: true
-}, {
-  id: 2, name: 'dennis', isStud: true
-}, {
-  id: 3, name: 'viktor', isStud: true
-},];
+// const users = [{
+//   id: 1, name: 'vlad', isStud: true
+// }, {
+//   id: 2, name: 'dennis', isStud: true
+// }, {
+//   id: 3, name: 'viktor', isStud: true
+// },];
+//
+// const updUsers = users.map((user) => {
+//   if (user.name === 'dennis') {
+//     return {...user, isStud: false};
+//   } else {
+//     return user;
+//   }
+// });
 
-const updUsers = users.map((user) => {
-  if (user.name === 'dennis') {
-    return {...user, isStud: false};
-  } else {
-    return user;
-  }
-});
-
-console.log(' updUsers: ', updUsers);
+// console.log(' updUsers: ', updUsers);
 
 // delete
-const usersWithoutDeleted =
-  users.filter(user => user.id !== 3);
-console.log(' deletedUsers: ', usersWithoutDeleted);
+// const usersWithoutDeleted =
+//   users.filter(user => user.id !== 3);
+// console.log(' deletedUsers: ', usersWithoutDeleted);
 
 
 
