@@ -114,30 +114,32 @@
 
 // кейс из практики
 
-// 1. переменные со статусами
-const STATUS_BUSY = "busy";
-const STATUS_READY = "ready";
+// // 1. переменные со статусами
+// const STATUS_BUSY = "busy";
+// const STATUS_READY = "ready";
+//
+// // 2. объект с вычисляемыми ключами
+//
+// const STATUS_LABELS = {
+//   [STATUS_BUSY]: "занято",
+//   [STATUS_READY]: "свободно",
+// };
+//
+// // 3. с БД приходит массив с объектами
+// const drivers = [
+//   {name: "павел", status: "ready"},
+//   {name: "виктор", status: "busy"},
+// ];
+//
+// //4. приведение статусов в другой вид
+// const driversStatuses = drivers.map(({name, status}) => {
+//   console.log(' `status`: ', status);
+//   return {name, status: STATUS_LABELS[status]};
+// });
+//
+// console.log(' driversStatuses: ', driversStatuses);
 
-// 2. объект с вычисляемыми ключами
 
-const STATUS_LABELS = {
-  [STATUS_BUSY]: "занято",
-  [STATUS_READY]: "свободно",
-};
-
-// 3. с БД приходит массив с объектами
-const drivers = [
-  {name: "павел", status: "ready"},
-  {name: "виктор", status: "busy"},
-];
-
-//4. приведение статусов в другой вид
-const driversStatuses = drivers.map(({name, status}) => {
-  console.log(' `status`: ', status);
-  return {name, status: STATUS_LABELS[status]};
-});
-
-console.log(' driversStatuses: ', driversStatuses);
 
 
 // tipi dannih
