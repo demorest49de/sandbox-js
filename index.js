@@ -57,11 +57,13 @@
 
 // tipi dannih
 // primitivnie
-// todo string number symbol undefined null bigInt
+// todo
+//  string number symbol undefined null bigInt boolean
 // hranjatsja v steke. stek imeet fix razmer i raven 1 mbyte.
 
 // ssilochnie
-// todo object array function
+// todo
+//  object array function
 // kucha ne imeet ogranichenija po razmeru i mozhet uvelichivatsja
 // pri neobhodimosti.
 
@@ -74,20 +76,20 @@
 //
 // console.log(' person: ', person);
 
-const user = {
-  name: 'artem',
-  age: 6,
-  isStudent: false,
-}; // в переменную юзер будет сохранена ссылка на ячейку в памяти
-console.log(' user: ', user);
-
-// const user2= user; // второй объект не создался
-const user2 = {...user}; // второй объект не создался
-user2.name = 'bob';
-console.log(' user: ', user);
-console.log(' user2: ', user2);
-console.log(' is equal ==: ', user == user2);
-console.log(' is equal ===: ', user == user2);
+// const user = {
+//   name: 'artem',
+//   age: 6,
+//   isStudent: false,
+// }; // в переменную юзер будет сохранена ссылка на ячейку в памяти
+// console.log(' user: ', user);
+//
+// // const user2= user; // второй объект не создался
+// const user2 = {...user}; // второй объект не создался
+// user2.name = 'bob';
+// console.log(' user: ', user);
+// console.log(' user2: ', user2);
+// console.log(' is equal ==: ', user == user2);
+// console.log(' is equal ===: ', user == user2);
 
 /*
 
@@ -114,29 +116,105 @@ function randomInt(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }                                   //   4     1           1
 
-const users = [
-  {
-    name: `vasja${randomInt(1, 9)}`,
-    age: randomInt(22, 29),
-    isStudent: Boolean(randomInt(0, 1)),
-  },
-  {
-    name: `vasja${randomInt(1, 9)}`,
-    age: randomInt(22, 29),
-    isStudent: Boolean(randomInt(0, 1)),
-  },
-  {
-    name: `vasja${randomInt(1, 9)}`,
-    age: randomInt(22, 29),
-    isStudent: Boolean(randomInt(0, 1)),
-  },
-  {
-    name: `vasja${randomInt(1, 9)}`,
-    age: randomInt(22, 29),
-    isStudent: Boolean(randomInt(0, 1)),
-  },
-];
+// const users = [
+//   {
+//     name: `vasja${randomInt(1, 9)}`,
+//     age: randomInt(22, 29),
+//     isStudent: Boolean(randomInt(0, 1)),
+//   },
+//   {
+//     name: `vasja${randomInt(1, 9)}`,
+//     age: randomInt(22, 29),
+//     isStudent: Boolean(randomInt(0, 1)),
+//   },
+//   {
+//     name: `vasja${randomInt(1, 9)}`,
+//     age: randomInt(22, 29),
+//     isStudent: Boolean(randomInt(0, 1)),
+//   },
+//   {
+//     name: `vasja${randomInt(1, 9)}`,
+//     age: randomInt(22, 29),
+//     isStudent: Boolean(randomInt(0, 1)),
+//   },
+// ];
+//
+// console.log(' users: ', users);
 
-const value = users.pop();// удаление последнего элемента
-console.log(' value: ', value);
-console.log(' users: ', users);
+// const superUser = {
+//   id: 10,
+//   name: "Clementina DuBuque",
+//   username: "Moriah.Stanton",
+//   email: "Rey.Padberg@karina.biz",
+//   address: {
+//     street: "Kattie Turnpike",
+//     suite: "Suite 198",
+//     city: "Lebsackbury",
+//     zipcode: "31428-2261",
+//     geo: {
+//       lat: "-38.2386",
+//       lng: "57.2232"
+//     }
+//   },
+//   phone: "024-648-3804",
+//   website: "ambrose.net",
+//   company: {
+//     name: "Hoeger LLC",
+//     catchPhrase: "Centralized empowering task-force",
+//     bs: "target end-to-end models"
+//   }
+// };
+
+// const superUserCopied = {
+//   ...superUser,
+//   address: {
+//     ...superUser.address,
+//   }
+// };
+
+// superUserCopied.address.city = 'London';
+// console.log(' superUser: ', superUser.address);
+// console.log(' superUserCopied: ', superUserCopied.address);
+// const clonedUser = structuredClone(superUser);
+// clonedUser.address.street = 'Downing Street';
+// console.log(' superUser: ', superUser.address);
+// console.log(' clonedUser: ', clonedUser.address);
+
+// function calc(a, b) {
+//   return [a + b, undefined, a * b, a / b,];
+// }
+//
+// const [sum,subtr = 'no subtraction', mult, div]=calc(5,2);
+// console.log(' sum,subtr, mult, div: ', sum, subtr, mult, div);
+
+
+const person = {
+  name: 'Kirill',
+  age: 24,
+  adress: {
+    country: 'Poland',
+    city: 'Warsaw',
+  },
+};
+
+const name = 'Bob';
+const {
+  name: newName,
+  age,
+  car,
+  adress:
+    {
+      city: myCity,
+      country: myCountry
+    }
+} = person;
+
+console.log('name', name);
+console.log('newName', newName);
+console.log('age', age);
+console.log('car key', car);
+console.log('adress', adress);
+
+
+
+
