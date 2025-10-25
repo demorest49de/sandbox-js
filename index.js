@@ -55,11 +55,88 @@
 // console.log('result arr: ', arr);
 
 
+// tipi dannih
+// primitivnie
+// todo string number symbol undefined null bigInt
+// hranjatsja v steke. stek imeet fix razmer i raven 1 mbyte.
 
+// ssilochnie
+// todo object array function
+// kucha ne imeet ogranichenija po razmeru i mozhet uvelichivatsja
+// pri neobhodimosti.
 
+// способы создания объекта
+// const user = {}; // литерал объекта
+//
+// let person = new Object();
+// person.age = 25;
+// person.name = 'egor';
+//
+// console.log(' person: ', person);
 
+const user = {
+  name: 'artem',
+  age: 6,
+  isStudent: false,
+}; // в переменную юзер будет сохранена ссылка на ячейку в памяти
+console.log(' user: ', user);
 
+// const user2= user; // второй объект не создался
+const user2 = {...user}; // второй объект не создался
+user2.name = 'bob';
+console.log(' user: ', user);
+console.log(' user2: ', user2);
+console.log(' is equal ==: ', user == user2);
+console.log(' is equal ===: ', user == user2);
 
+/*
 
+undefined == null	особое правило — равны только друг другу	✅ true
+undefined == 0	нет приведения	❌ false
+null == 0	тоже нет приведения	❌ false
+true == 1	true → 1 → 1 == 1	✅ true
+false == 0	false → 0	✅ true
+'5' == 5	'5' → 5	✅ true
+'0' == false	false → 0, '0' → 0 → 0 == 0	✅ true
+0 == ''	'' → 0	✅ true
+[] == ''	[] → '' → '' == ''	✅ true
+[] == 0	[] → '', '' → 0 → 0 == 0	✅ true
+[1] == 1	[1] → '1', '1' → 1	✅ true
+[1,2] == '1,2'	массив → '1,2'	✅ true
+[1,2] == 1	[1,2] → '1,2', '1,2' → NaN → NaN == 1	❌ false
+[] == ![]	![] → false, [] → '', '' → 0, false → 0 → 0 == 0	✅ true
+{} == '[object Object]'	объект → '[object Object]'	✅ true
+{} == {}	разные ссылки на объект	❌ false
+NaN == NaN	NaN не равен ничему	❌ false
 
+ */
+function randomInt(min, max) {
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+}                                   //   4     1           1
 
+const users = [
+  {
+    name: `vasja${randomInt(1, 9)}`,
+    age: randomInt(22, 29),
+    isStudent: Boolean(randomInt(0, 1)),
+  },
+  {
+    name: `vasja${randomInt(1, 9)}`,
+    age: randomInt(22, 29),
+    isStudent: Boolean(randomInt(0, 1)),
+  },
+  {
+    name: `vasja${randomInt(1, 9)}`,
+    age: randomInt(22, 29),
+    isStudent: Boolean(randomInt(0, 1)),
+  },
+  {
+    name: `vasja${randomInt(1, 9)}`,
+    age: randomInt(22, 29),
+    isStudent: Boolean(randomInt(0, 1)),
+  },
+];
+
+const value = users.pop();// удаление последнего элемента
+console.log(' value: ', value);
+console.log(' users: ', users);
