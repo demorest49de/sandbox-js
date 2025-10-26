@@ -139,17 +139,103 @@
 //
 // console.log(' driversStatuses: ', driversStatuses);
 
+// spread -> распаковывает
+// const arr1 = [1, 2];
+// const arr2 = [3, 4];
+// const merged = [...arr1, ...arr2];
+//
+// console.log(merged); // [1, 2, 3, 4]
 
 
+// rest -> собирает
+// Когда ты не знаешь заранее, сколько аргументов придёт в функцию —
+// используешь rest-параметр (...args).
+
+// const str = 'hello world';
+// console.log(str);
+// console.log(`str.split('').reverse().join(): `, str.split(' ').reverse().join(' '));
+
+// Раскладываем строку в символы:
+// const [first, ...rest] = str;
+// console.log(' first: ', first, rest);
+// const result = first.toUpperCase() + rest.join('');
+// console.log(' result: ', result);
+
+//Map коллекция
+
+// new Map - это коллекция ключ значения как и Object.
+//
+// const mapCollection = new Map;
+// mapCollection.set(2, "2");
+// mapCollection.set("3", "1");
+// mapCollection.set(true, 1);
+// mapCollection.set(true, 1);
+//
+// console.log(' mapCollection.get(true): ', mapCollection.get(true));
+//
+// console.log(' mapCollection: ', mapCollection);
+
+// const subArrs  = [
+//   ["1", {[1]: 1}],
+//   [{[1]: 1}, 222],
+//   [true, "1"],
+//   [1, false],
+// ];
+//
+// const map = new Map(subArrs);
+// console.log(' map: ', map);
+
+// weakmap
+// объект в коллекции в качестве ключа существует до тех пор
+// пока сущесвтует ссылка на объект
+// const weakMap = new WeakMap();
+// let obj = {name: 'Alice'};
+// weakMap.set(obj, 'hello');
+// obj = null; // если объект обнуллить то запись в коллекции тоже перестанет
+// // сущестововать
+// console.log(' weakMap: ', weakMap);
+
+// в обычно мапе все лучше даже при удалении ссылки массив остается в памяти
+// const strongMap = new Map();
+// let obj2 = {name: 'Alice'};
+// strongMap.set(obj2, 'hello');
+// obj2 = null;
+// console.log(' strongMap: ', [...strongMap]);
+
+
+// const primitiveTypes = {
+//   [`NaN`]: typeof(NaN),
+//   [`'string'`]: typeof(''),
+//   [`1`]: typeof(1),
+//   [`123n`]: typeof(123n),
+//   [`true`]: typeof(true),
+//   [`undefined`]: typeof(undefined),
+//   [`Symbol('id')`]: typeof(Symbol('id')),
+//   [`null`]: typeof(null),
+// };
+// console.log(primitiveTypes);
+
+// const referenceTypes = {
+//   [`[]`]: typeof([]),
+//   [`{}`]: typeof({}),
+//   [`()=>{}`]: typeof(()=>{}),
+//   [`12.03.2025`]: typeof(new Date()),
+//   [`/\\d+/`]: typeof(/\d+/),
+//   [`new Map(), new WeakMap()`]: typeof(new Map()),
+//   [`new Set(), new WeakSet()`]: typeof(new Set()),
+//   [`new Error('ooops')`]: typeof(new Error('ooops')),
+//   [`new Promise((resolve)=>{resolve(true)})`]: typeof(new Promise((resolve)=>{resolve(true)})),
+//   [`new Uint8Array(5)`]: typeof(new Uint8Array(5)),
+// };
+// console.log(referenceTypes);
 
 // tipi dannih
 // primitivnie
-// todo
+
 //  string number symbol undefined null bigInt boolean
 // hranjatsja v steke. stek imeet fix razmer i raven 1 mbyte.
 
 // ssilochnie
-// todo
 //  object array function
 // kucha ne imeet ogranichenija po razmeru i mozhet uvelichivatsja
 // pri neobhodimosti.
@@ -177,6 +263,13 @@
 // console.log(' user2: ', user2);
 // console.log(' is equal ==: ', user == user2);
 // console.log(' is equal ===: ', user == user2);
+
+/*
+   shift удаляет первый элемент
+   unshift добавляет первый элемент
+   push добавляет последний элемент
+   pop удаляет последний элемент
+ */
 
 /*
 
