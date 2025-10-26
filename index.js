@@ -211,6 +211,9 @@
 // set.add(`value2`);
 // console.log(' set: ', set);
 
+// const numbers = [2, 2, 2, 3, 4, 3, 5, 4, 45, 6, 5, 7];
+// const set = new Set(numbers);
+// console.log([...set]);
 
 
 // отличие forof От forin
