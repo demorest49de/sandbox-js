@@ -12,6 +12,7 @@
 // var a = 'str';
 // let b = 1;
 
+
 // замыкание это способность функции запоминать свое внешнее лексическое окружение
 
 // const colors = ['red', 'blue', 'yellow'];
@@ -19,23 +20,25 @@
 // console.log(' colors: ', red, blue, yellow,  novalue);
 // console.log(' colors: ', [red, blue, ...colors]);
 
-//slice
-// let arr = ['a','b','c','d','e'];
-// const sub = arr.slice(0,2); // ne vkluchitelno po 2-oy index
-// console.log(' arr: ', arr);
-// console.log(' sub: ', sub);
-
-// let arr = ['a','b','c','d','e'];
-// const sub = arr.slice(1); // nachinaya s indexa virezaem
-// console.log(' arr: ', arr);
-// console.log(' sub: ', sub);
-
-// let arr = ['a', 'b', 'c', 'd', 'e'];
-// const sub = arr.slice(1, -2); // vtoroy index ne vkluchitel'no
+// //slice
+// // работает иммутабельно вырезает с первого параметра по 2-ой
+// // включительно
+// let arr1 = ['a','b','c','d','e'];
+// const sub1 = arr1.slice(0,2); // ne vkluchitelno po 2-oy index
+// console.log(' sub: ', sub1);
+// console.log(' arr: ', arr1);
+//
+// let arr2 = ['a','b','c','d','e'];
+// const sub2 = arr2.slice(1); // nachinaya s indexa virezaem
+// console.log(' arr: ', arr2);
+// console.log(' sub: ', sub2);
+//
+// let arr3 = ['a', 'b', 'c', 'd', 'e'];
+// const sub3 = arr3.slice(1, -2); // vtoroy index ne vkluchitel'no
 // // te bez 2 parametra budut vse, a nachinaya s -1 budut bez kolichestva
 // // elementov s minusom
-// console.log(' arr: ', arr);
-// console.log(' sub: ', sub);
+// console.log(' arr: ', arr3);
+// console.log(' sub: ', sub3);
 
 // splice
 // udalenie elementov
@@ -195,13 +198,17 @@
 // // сущестововать
 // console.log(' weakMap: ', weakMap);
 
-// в обычном мапе все лучше даже при удалении ссылки запись остается в памяти
+// // в обычном мапе все лучше даже при удалении ссылки запись остается в памяти
 // const strongMap = new Map();
 // let obj2 = {name: 'Alice'};
 // strongMap.set(obj2, 'hello');
 // obj2 = null;
 // console.log(' strongMap: ', [...strongMap]);
-
+// for ([k, v] of strongMap) console.log(`key = ${k.name}, value = ${v}`);
+// strongMap.forEach((v, k, map) => {
+//   console.log(' v: ', v);
+//   console.log(' k: ', k, ` name: ${k.name}`);
+// });
 
 // new Set()
 // особый вид коллекции (множесто значений без ключей)
@@ -365,8 +372,8 @@ WeakMap/WeakSet → не итерируемы, можно только полу�
 // console.log(referenceTypes);
 
 // tipi dannih
-// primitivnie
 
+// primitivnie
 //  string number symbol undefined null bigInt boolean
 // hranjatsja v steke. stek imeet fix razmer i raven 1 mbyte.
 
@@ -402,8 +409,8 @@ WeakMap/WeakSet → не итерируемы, можно только полу�
 /*
    shift удаляет первый элемент
    unshift добавляет первый элемент
-   push добавляет последний элемент
    pop удаляет последний элемент
+   push добавляет последний элемент
  */
 
 /*
@@ -479,14 +486,14 @@ function randomInt(min, max) {
 //     bs: "target end-to-end models"
 //   }
 // };
-
+//
 // const superUserCopied = {
 //   ...superUser,
 //   address: {
 //     ...superUser.address,
 //   }
 // };
-
+//
 // superUserCopied.address.city = 'London';
 // console.log(' superUser: ', superUser.address);
 // console.log(' superUserCopied: ', superUserCopied.address);
@@ -545,16 +552,16 @@ D - DELETE
 //     isStud: true
 //   },
 // ]
-
+//
 // const user = {
 //   id:2,
 //   name: 'T',
 //   isStud: true
 // }
-
-// create
-// // const newJoinedArray = [...users, user];
-// const newJoinedArray = [...users].concat(user); // 2 sposob
+//
+// // create
+// const newJoinedArray = [...users, user];
+// // const newJoinedArray = [...users].concat(user); // 2 sposob
 // console.log(' newJoinedArray: ', newJoinedArray);
 
 
@@ -574,7 +581,7 @@ D - DELETE
 //     return user;
 //   }
 // });
-
+//
 // console.log(' updUsers: ', updUsers);
 
 // delete
