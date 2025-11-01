@@ -1,17 +1,19 @@
-// foo(); // это хойстинг - то есть всплытие функции
-//
-// function foo() {
-//   console.log(' hoisting: ');
-// }
-//
-// console.log(' a: ', a);
-//
-// let bar = function () {
-// };
-// bar();
-// var a = 'str';
-// let b = 1;
+/* foo();
+//! хойстинг - то есть всплытие функции
 
+
+function foo() {
+  console.log(' hoisting: ');
+}
+
+console.log(' a: ', a);
+
+let bar = function () {
+};
+bar();
+var a = 'str';
+ let b = 1;
+*/
 
 // замыкание это способность функции запоминать свое внешнее лексическое окружение
 
@@ -20,81 +22,102 @@
 // console.log(' colors: ', red, blue, yellow,  novalue);
 // console.log(' colors: ', [red, blue, ...colors]);
 
-// //slice
-// // работает иммутабельно вырезает с первого параметра по 2-ой
-// // включительно
-// let arr1 = ['a','b','c','d','e'];
-// const sub1 = arr1.slice(0,2); // ne vkluchitelno po 2-oy index
-// console.log(' sub: ', sub1);
-// console.log(' arr: ', arr1);
-//
-// let arr2 = ['a','b','c','d','e'];
-// const sub2 = arr2.slice(1); // nachinaya s indexa virezaem
-// console.log(' arr: ', arr2);
-// console.log(' sub: ', sub2);
-//
-// let arr3 = ['a', 'b', 'c', 'd', 'e'];
-// const sub3 = arr3.slice(1, -2); // vtoroy index ne vkluchitel'no
-// // te bez 2 parametra budut vse, a nachinaya s -1 budut bez kolichestva
-// // elementov s minusom
-// console.log(' arr: ', arr3);
-// console.log(' sub: ', sub3);
+/*
+//! slice
 
-// splice
-// udalenie elementov
-// let arr = ['a', 'b', 'c', 'd', 'e'];
-// console.log('source arr: ', arr);
-// arr.splice(1, 3);// 1 param - s kakogo elem-ta, 2 param - skolko elems udalyaem
-// console.log('result arr: ', arr);
+//? работает иммутабельно вырезает с первого параметра по 2-ой
+//? включительно
+
+let arr1 = ['a', 'b', 'c', 'd', 'e'];
+//!*     indexi ==>   0    1    2    3    4
+const sub1 = arr1.slice(0, 2);
+console.log(' arr1, sub1: ', arr1, sub1);
+console.log(' ne vkluchitelno po 2-oy index: ');
+//? slice immutable virezaet iz arr1 v sub1 ne vkluchitelno po 2-oy index
+//?
+let arr2 = ['a', 'b', 'c', 'd', 'e'];
+//!*     indexi ==>   0    1    2    3    4
+const sub2 = arr2.slice(1);
+//? nachinaya s indexa virezaem
+//?
+console.log(' arr2: ', arr2);
+console.log(' sub2: ', sub2);
+let arr3 = ['a', 'b', 'c', 'd', 'e'];
+//!*     indexi ==>   0    1    2    3    4
+const sub3 =
+  arr3.slice(1, -2);
+//!*         🔼 - 1 парам - это индекс с кот вырежем с левой стороны
+//!*         🔼 слева уберем 1 эл-т
+//!*              🔼 - 2 парам - это индекс с кот вырежем с правой стороны
+//!*              🔼 справа уберем 2 эл-та
+console.log(' arr3: ', arr3);
+console.log(' sub3: ', sub3);
+*/
+
+
+/*
+//! splice
+//? udalenie elementov
+//?
+let arr = ['a', 'b', 'c', 'd', 'e'];
+console.log('source arr: ', arr);
+arr.splice(1, 3);// 1 param - s kakogo elem-ta, 2 param - skolko elems udalyaem
+console.log('result arr: ', arr);
 
 // NE udalenie elementov, a dobavlenie elementov
-// const arr = ['a', 'b', 'c', 'd', 'e'];
-// console.log('source arr: ', arr);
+const arr = ['a', 'b', 'c', 'd', 'e'];
+console.log('source arr: ', arr);
 // // arr.splice(1, 0, "2", "3", "test");
-// const addData = ['4', '5', '6'];
-// arr.splice(1, 3, ...addData);
+const addData = ['4', '5', '6'];
+arr.splice(1, 3, ...addData);
 // // 1 param - s kakogo elem-ta, 2 param - 0 tk ne udalyaem nichego
 // // 3 param - dobavlayem elems. mozhno spreadom raskatat' zdes'.
-// console.log('result arr: ', arr);
+console.log('result arr: ', arr);
 
-// const arr = ['a', 'b', 'c', 'd', 'e'];
-// console.log('source arr: ', arr);
-// arr.splice(-3, 2);
+const arr = ['a', 'b', 'c', 'd', 'e', 'f'];
+console.log('source arr: ', arr);
+arr.splice(-3, 2);
 // // 1 param - s kakogo elem-ta, 2 param - skolko udalyaem
 // // если у 1 параметра мы ставим минус, значит начинаем осчитывать
 // // с конца массива сколько-то элементов
-// console.log('result arr: ', arr);
+console.log('result arr: ', arr);
 // со сплайсом мы можем как добавлять объекты так и удалять
 
 // toSpliced() - тоже самое что и splice() но иммутабельный
 // поддерживается с определенной версии js
+*/
 
-// reduce
 
-// reduce((acc, el) => {}, 0 - опциональное значение
-// по умолчанию, может быть любого типа);
 
-// const people = [
-//   { name: 'Alice', age: 25 },
-//   { name: 'Bob', age: 30 },
-//   { name: 'Charlie', age: 22 },
-// ]; // {totalNames: [...], totalAge: ...}
-//
-// const res = people.reduce(
-//   (acc, person) => {
-//     // console.log('person', person);
-//     acc.totalNames.push(person.name);
-//     acc.totalAge += person.age;
-//     // console.log('acc: ', acc);
-//     return acc;
-//   },
-//   { totalNames: [], totalAge: 0 }
-// );
-//
-// console.log(res);
+/*
+//! reduce
 
-// статические свойства объекта -
-// они задаются при создании
+//? reduce((acc, el) => {}, 0 - опциональное значение
+//\ по умолчанию, может быть любого типа);
+
+const people = [
+  { name: 'Alice', age: 25 },
+  { name: 'Bob', age: 30 },
+  { name: 'Charlie', age: 22 },
+]; // {totalNames: [...], totalAge: ...}
+
+const res = people.reduce(
+  (acc, person) => {
+    // console.log('person', person);
+    acc.totalNames.push(person.name);
+    acc.totalAge += person.age;
+    // console.log('acc: ', acc);
+    return acc;
+  },
+  { totalNames: [], totalAge: 0 }
+);
+
+console.log(res);
+*/
+
+
+//! статические свойства объекта -
+//* они задаются при создании
 
 // const fruit = {
 //   color: 'red',
