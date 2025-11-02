@@ -1,5 +1,6 @@
-/* foo();
+/*
 //! хойстинг - то есть всплытие функции
+foo();
 
 
 function foo() {
@@ -15,12 +16,13 @@ var a = 'str';
  let b = 1;
 */
 
-// замыкание это способность функции запоминать свое внешнее лексическое окружение
+/*
+//\ замыкание это способность функции запоминать свое внешнее лексическое окружение
 
-// const colors = ['red', 'blue', 'yellow'];
-// const [red, blue, yellow, novalue = 'no value'] = colors;
-// console.log(' colors: ', red, blue, yellow,  novalue);
-// console.log(' colors: ', [red, blue, ...colors]);
+const colors = ['red', 'blue', 'yellow'];
+const [red, blue, yellow, novalue = 'no value'] = colors;
+console.log(' colors: ', red, blue, yellow,  novalue);
+console.log(' colors: ', [red, blue, ...colors]);*/
 
 /*
 //! slice
@@ -47,46 +49,43 @@ let arr3 = ['a', 'b', 'c', 'd', 'e'];
 const sub3 =
   arr3.slice(1, -2);
 //!*         🔼 - 1 парам - это индекс с кот вырежем с левой стороны
-//!*         🔼 слева уберем 1 эл-т
+//!*         🔼 слева уберем 1 эл-т невключительно
 //!*              🔼 - 2 парам - это индекс с кот вырежем с правой стороны
-//!*              🔼 справа уберем 2 эл-та
+//!*              🔼 справа уберем 2 эл-та невключительно
 console.log(' arr3: ', arr3);
-console.log(' sub3: ', sub3);
-*/
+console.log(' sub3: ', sub3);*/
 
 
 /*
 //! splice
 //? udalenie elementov
 //?
-let arr = ['a', 'b', 'c', 'd', 'e'];
-console.log('source arr: ', arr);
-arr.splice(1, 3);// 1 param - s kakogo elem-ta, 2 param - skolko elems udalyaem
-console.log('result arr: ', arr);
+let arr1 = ['a', 'b', 'c', 'd', 'e'];
+console.log('source arr1: ', arr1);
+arr1.splice(1, 3);// 1 param - s kakogo elem-ta, 2 param - skolko elems udalyaem
+console.log('result arr1: ', arr1);
 
 // NE udalenie elementov, a dobavlenie elementov
-const arr = ['a', 'b', 'c', 'd', 'e'];
-console.log('source arr: ', arr);
+const arr2 = ['a', 'b', 'c', 'd', 'e'];
+console.log('source arr2: ', arr2);
 // // arr.splice(1, 0, "2", "3", "test");
 const addData = ['4', '5', '6'];
-arr.splice(1, 3, ...addData);
+arr2.splice(1, 3, ...addData);
 // // 1 param - s kakogo elem-ta, 2 param - 0 tk ne udalyaem nichego
 // // 3 param - dobavlayem elems. mozhno spreadom raskatat' zdes'.
-console.log('result arr: ', arr);
+console.log('result arr2: ', arr2);
 
-const arr = ['a', 'b', 'c', 'd', 'e', 'f'];
-console.log('source arr: ', arr);
-arr.splice(-3, 2);
+const arr3 = ['a', 'b', 'c', 'd', 'e', 'f'];
+console.log('source arr3: ', arr3);
+arr3.splice(-3, 2);
 // // 1 param - s kakogo elem-ta, 2 param - skolko udalyaem
 // // если у 1 параметра мы ставим минус, значит начинаем осчитывать
 // // с конца массива сколько-то элементов
-console.log('result arr: ', arr);
+console.log('result arr3: ', arr3);
 // со сплайсом мы можем как добавлять объекты так и удалять
 
 // toSpliced() - тоже самое что и splice() но иммутабельный
-// поддерживается с определенной версии js
-*/
-
+// поддерживается с определенной версии js*/
 
 
 /*
@@ -116,54 +115,56 @@ console.log(res);
 */
 
 
+/*
 //! статические свойства объекта -
-//* они задаются при создании
+//!* они задаются при создании
 
-// const fruit = {
-//   color: 'red',
-//   taste: "delicious"
-// };
+const fruit = {
+  color: 'red',
+  taste: "delicious"
+};
 
-// динамические свойства объекта -
-// они вычисляются в процессе выполнения кода
+//\ динамические свойства объекта -
+//\ они вычисляются в процессе выполнения кода
 
-// const objDynamic = {
-//   [key]: value
-// };
+const objDynamic = {
+  ['key']: 'value'
+};
 
-// function createObject(key, value) {
-//   return {[key]: value};
-// }
-//
-// const obj = createObject('car', 'AUDI');
-// console.log(' obj: ', obj);
+function createObject(key, value) {
+  return {[key]: value};
+}
 
-// кейс из практики
+const obj = createObject('car', 'AUDI');
+console.log(' obj: ', obj);
 
-// // 1. переменные со статусами
-// const STATUS_BUSY = "busy";
-// const STATUS_READY = "ready";
-//
-// // 2. объект с вычисляемыми ключами
-//
-// const STATUS_LABELS = {
-//   [STATUS_BUSY]: "занято",
-//   [STATUS_READY]: "свободно",
-// };
-//
-// // 3. с БД приходит массив с объектами
-// const drivers = [
-//   {name: "павел", status: "ready"},
-//   {name: "виктор", status: "busy"},
-// ];
-//
-// //4. приведение статусов в другой вид
-// const driversStatuses = drivers.map(({name, status}) => {
-//   console.log(' `status`: ', status);
-//   return {name, status: STATUS_LABELS[status]};
-// });
-//
-// console.log(' driversStatuses: ', driversStatuses);
+//! кейс из практики
+
+//? 1. переменные со статусами
+const STATUS_BUSY = "busy";
+const STATUS_READY = "ready";
+
+//? 2. объект с вычисляемыми ключами
+
+const STATUS_LABELS = {
+  [STATUS_BUSY]: "занято",
+  [STATUS_READY]: "свободно",
+};
+
+//? 3. с БД приходит массив с объектами
+const drivers = [
+  {name: "павел", status: "ready"},
+  {name: "виктор", status: "busy"},
+];
+
+//?  4. приведение статусов в другой вид
+const driversStatuses = drivers.map(({name, status}) => {
+  console.log(' `status`: ', status);
+  return {name, status: STATUS_LABELS[status]};
+});
+
+console.log(' driversStatuses: ', driversStatuses);*/
+
 
 // spread -> распаковывает
 // const arr1 = [1, 2];
