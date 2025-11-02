@@ -9,6 +9,7 @@
 let globalScope = {
   outerScope: null,
   f: 'Function', //? ссылка на функцию f где ключом является имя функции
+  someFunc: 'Function',
 };
 
 
@@ -16,20 +17,37 @@ function f(arg) {
   
   let fScope = {
     outerScope: globalScope,
+    arg: 230, //\ undefined => 200 => 210  => 230  => 260
     inner: 'Function',
   };
   function inner(arg2) {
-    let innerScope = {
-      outerScope: fScope
+    // let innerScope = {
+    //   outerScope: fScope,
+    //   arg2: 10, //? undefined => 10
+    // };
+    
+    // let innerScope2 = {
+    //   outerScope: fScope,
+    //   arg2: 20, //?undefined => 20
+    // };
+    
+    let innerScope3 = {
+      outerScope: fScope,
+      arg2: 30, //?undefined => 30
     };
+    
     arg += arg2;
+    //! arg = 200
+    //! arg = 210 при innerScope
+    //! arg = 230 при innerScope2
+    //! arg = 260 при innerScope3
     console.log(' arg: ', arg);
   }
   
   return inner;
 }
 
-const someFunct = f(200);
-someFunct(10);
-someFunct(20);
-someFunct(30);
+const someFunc = f(200);
+someFunc(10);
+someFunc(20);
+someFunc(30);
