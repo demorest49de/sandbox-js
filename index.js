@@ -1,7 +1,8 @@
-// структуры которые создают в джс область видимости
-// function/class, if/else, loop, try/catch/finally/, switch, anonymous
 
-// lex env - объект к которому нет доступа он спрятан под капотом
+//! структуры которые создают в джс область видимости
+//? function/class, if/else, loop, try/catch/finally/, switch, anonymous
+
+//\ lex env - объект к которому нет доступа он спрятан под капотом
 
 let globalScope = {
   outerScope: null,
