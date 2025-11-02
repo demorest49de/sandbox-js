@@ -1,22 +1,35 @@
-
 //! структуры которые создают в джс область видимости
 //? function/class, if/else, loop, try/catch/finally/, switch, anonymous
 
 //\ lex env - объект к которому нет доступа он спрятан под капотом
 
+//! при запуске кода компилятор создает глобалСкоуп
+//! в него записывает на 1 пробеге ключи
+//! в него записывает на 2 пробеге значения
 let globalScope = {
   outerScope: null,
-  f: 'Function', // ссылка на функцию f где ключом является имя функции
-  a: 10,
+  f: 'Function', //? ссылка на функцию f где ключом является имя функции
 };
 
-const a = 10;
 
-function f() {
+function f(arg) {
+  
   let fScope = {
     outerScope: globalScope,
+    inner: 'Function',
   };
-  console.log(a);
+  function inner(arg2) {
+    let innerScope = {
+      outerScope: fScope
+    };
+    arg += arg2;
+    console.log(' arg: ', arg);
+  }
+  
+  return inner;
 }
 
-f();
+const someFunct = f(200);
+someFunct(10);
+someFunct(20);
+someFunct(30);
