@@ -6,6 +6,8 @@
 //! при запуске кода компилятор создает глобалСкоуп
 //! в него записывает на 1 пробеге ключи
 //! в него записывает на 2 пробеге значения
+
+/*
 let globalScope = {
   outerScope: null,
   f: 'Function', //? ссылка на функцию f где ключом является имя функции
@@ -50,6 +52,36 @@ function f(arg) {
 const someFunc = f(200);
 someFunc(10);
 someFunc(20);
-someFunc(30);
+someFunc(30);*/
 
-//! https://youtu.be/FYgtzavnGck?list=PL68yfJ7Vdq8mFH4NiyTLZmNw2_jvfL1R3&t=4470
+let globalScope = {
+  f1: 'Function',
+  a: 25,
+};
+var a = 25;
+
+function f1(arg1, f2) {
+  let f1Scope = {
+    innerScope: globalScope,
+    f2: 'Function',
+    a: 250,
+  };
+  
+  let a = 250;
+  
+  return f2(a);
+}
+
+function f2(arg2) {
+  console.log(' a: ', a);
+  console.log(' a: ', arg2);
+  return function (arg3) {
+    return a + arg2 + arg3;
+  };
+};
+
+//\ Замыкание для
+//? function declaration
+//! создается
+//? в момент определения функции
+console.log(' f1(20)(40): ', f1(20, f2)(40));
