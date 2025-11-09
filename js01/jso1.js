@@ -390,31 +390,31 @@ test(1,2,3);
 //? WeakMap/WeakSet → не итерируемы, можно только получать/устанавливать конкретные ключи*/
 
 
-// const primitiveTypes = {
-//   [`NaN`]: typeof(NaN),
-//   [`'string'`]: typeof(''),
-//   [`1`]: typeof(1),
-//   [`123n`]: typeof(123n),
-//   [`true`]: typeof(true),
-//   [`undefined`]: typeof(undefined),
-//   [`Symbol('id')`]: typeof(Symbol('id')),
-//   [`null`]: typeof(null),
-// };
-// console.log(primitiveTypes);
+/*const primitiveTypes = {
+  [`NaN`]: typeof(NaN),
+  [`'string'`]: typeof(''),
+  [`1`]: typeof(1),
+  [`123n`]: typeof(123n),
+  [`true`]: typeof(true),
+  [`undefined`]: typeof(undefined),
+  [`Symbol('id')`]: typeof(Symbol('id')),
+  [`null`]: typeof(null),
+};
+console.log(primitiveTypes);*/
 
-// const referenceTypes = {
-//   [`[]`]: typeof([]),
-//   [`{}`]: typeof({}),
-//   [`()=>{}`]: typeof(()=>{}),
-//   [`12.03.2025`]: typeof(new Date()),
-//   [`/\\d+/`]: typeof(/\d+/),
-//   [`new Map(), new WeakMap()`]: typeof(new Map()),
-//   [`new Set(), new WeakSet()`]: typeof(new Set()),
-//   [`new Error('ooops')`]: typeof(new Error('ooops')),
-//   [`new Promise((resolve)=>{resolve(true)})`]: typeof(new Promise((resolve)=>{resolve(true)})),
-//   [`new Uint8Array(5)`]: typeof(new Uint8Array(5)),
-// };
-// console.log(referenceTypes);
+/*const referenceTypes = {
+  [`[]`]: typeof([]),
+  [`{}`]: typeof({}),
+  [`()=>{}`]: typeof(()=>{}),
+  [`12.03.2025`]: typeof(new Date()),
+  [`/\\d+/`]: typeof(/\d+/),
+  [`new Map(), new WeakMap()`]: typeof(new Map()),
+  [`new Set(), new WeakSet()`]: typeof(new Set()),
+  [`new Error('ooops')`]: typeof(new Error('ooops')),
+  [`new Promise((resolve)=>{resolve(true)})`]: typeof(new Promise((resolve)=>{resolve(true)})),
+  [`new Uint8Array(5)`]: typeof(new Uint8Array(5)),
+};
+console.log(referenceTypes);*/
 
 
 /*
