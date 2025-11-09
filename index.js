@@ -12,6 +12,7 @@ let globalScope = {
   outerScope: null,
   f: 'Function', //? ссылка на функцию f где ключом является имя функции
   someFunc: 'Function',
+  a: 234,
 };
 
 
@@ -54,34 +55,81 @@ someFunc(10);
 someFunc(20);
 someFunc(30);*/
 
-let globalScope = {
-  f1: 'Function',
-  a: 25,
-};
-var a = 25;
+/*
+a = 200;
+console.log('a: ', a);
+var a = 500;
+console.log('a: ', a);
+фи = 43;
+console.log('фи: ', фи);
 
-function f1(arg1, f2) {
-  let f1Scope = {
-    innerScope: globalScope,
-    f2: 'Function',
-    a: 250,
+function someFunc() {
+  const callback = (arg) => {
+    console.log(a);
+    console.log(arg);
+    console.log(фи);
+    return a * arg;
   };
-  
-  let a = 250;
-  
-  return f2(a);
+  let a = 10;
+  //\ return callback;
+  return callback(a);//\ - функция вызвана но а берется из места
+  //\определения коллбека
+  //! НО
+  //? если объявить функцию внутри данной функции someFunc то она
+  //? ЗАМКНЕТСЯ на лексическое окружение someFunc и var a = 500; уже не увидит
 }
 
-function f2(arg2) {
-  console.log(' a: ', a);
-  console.log(' a: ', arg2);
-  return function (arg3) {
-    return a + arg2 + arg3;
-  };
+
+const call = (arg) => {
+  console.log(a);
+  console.log(arg);
+  return a * arg;
 };
 
-//\ Замыкание для
-//? function declaration
-//! создается
-//? в момент определения функции
-console.log(' f1(20)(40): ', f1(20, f2)(40));
+console.log(someFunc());*/
+
+/*
+//\ Рекурсия - это способность функции
+//! вызывать саму себя
+//? в процессе работы
+
+function sumTo(num) {
+  if (num <= 1) return num;
+  
+  return num + sumTo(num - 1);
+}
+
+console.log(`sum: ${sumTo(3)}`);
+//! то есть в стек вызовов будут накапливаться вызовы пока не
+//! сработает точка выхода а именно пока a не станет равным 1 и функция
+//! вернет 1
+
+// !
+// superSum(0);
+// superSum(3)(2)(5)(3);
+// superSum(3)(2)(5, 3);
+// superSum(3)(2, 5, 3);
+superSum(3)(2, 5)(3);
+// superSum(3)(2, 5)(3, 9);
+
+function superSum(n) {
+  if (n <= 0) return 0;
+  if (n === 1) return n;
+  
+  let outputParams = [];
+  
+  function inner(...args) {
+    outputParams = [...outputParams, ...args];
+    
+    if (outputParams.length === n) {//! условие выхода
+      return outputParams.reduce((acc, el) => acc + el);
+    } else {
+      return inner;
+    }
+  }
+  
+  return inner;
+}*/
+
+//? https://youtu.be/FYgtzavnGck?list=PL68yfJ7Vdq8mFH4NiyTLZmNw2_jvfL1R3&t=6540
+//?
