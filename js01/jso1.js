@@ -225,6 +225,7 @@ for (const [key, value] of map){
   console.log(' key, value: ', key, value);
 }*/
 
+
 /*
 //! weakmap
 //\ объект в коллекции в качестве ключа существует до тех пор
