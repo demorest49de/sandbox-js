@@ -160,8 +160,8 @@ const alex = {
   askFile() {
     return new Promise((resolve, reject) => {
       setTimeout(() => {
-        reject("Errors");
         resolve("Users");
+        reject("Errors");
       }, 2000);
     });
   },
@@ -280,3 +280,17 @@ alex.askFile()
     console.log(res);
   })
 ;*/
+
+
+const promise = alex.askFile();
+
+promise.then((res) => {
+  console.log(res);
+})
+.then((res) => {
+  console.log(res);
+});
+
+promise.then((res) => {
+  console.log(res);
+});
