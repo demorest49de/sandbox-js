@@ -155,3 +155,128 @@ async function* gen() {
 })();*/
 
 //? 🟩 12. Через Atomics.wait (блокирующий, Node.js)
+
+const alex = {
+  askFile() {
+    return new Promise((resolve, reject) => {
+      setTimeout(() => {
+        reject("Errors");
+        resolve("Users");
+      }, 2000);
+    });
+  },
+  /*askFile2: () => {
+    
+  }*/
+};
+
+//! про реджект ВАЖНОЕ! если промис реджектится
+//! то комп-р ищет первый кэтч после обработки кэтча
+//! работает как обычный промис
+/*
+alex.askFile()
+  .catch((error) => {
+    console.log(' error: ', error);
+    console.warn(name2);
+  })
+  .then((then1) => {
+    console.log(' then1: ', then1);
+    return then1;
+  })
+  .then((then2) => {
+    console.log(' then2: ', then2);
+  })
+  .catch((error) => {
+    console.warn(error);
+    console.error(error);
+  });*/
+
+/*
+alex.askFile()
+  .then((data) => {
+      console.log('then resolve');
+      console.log(data);
+      return data;
+    },
+    //! здесь обрабатывается reject
+    //! и после этого коллбека ошибка
+    //!считается обработанной
+    //\ и начнет выполяться дальше then
+    (error) => {
+      console.log('then reject');
+      console.log(error);
+      return error;
+    })
+  .then((data) => {
+    console.log('then resolve');
+    console.log(data);
+  })
+  .catch((error) => {
+    console.log('catch');
+    console.log(error);
+    return error;
+  })
+  .finally(() => {
+    console.log(' finally: ');
+    // return '222 finally';
+    // ? finally ничего не может вернуть!!!
+    /!*return new Promise((resolve)=>{
+      resolve('promise from finally returned');
+    });//\ и возврат промиса тоже не поможет))))*!/
+    console.log(errorName);
+  })
+  .catch(()=>{
+    console.log('catch after finally');
+    return 'finally error catched and handled';
+  })
+  .then((data) => {
+    console.log('then after finally');
+    console.log(data);
+  })
+;*/
+
+/*alex.askFile()
+  .then((data) => {
+      console.log(' data: ', data);
+      return new Promise((resolve) => {
+        resolve(1);
+      });
+    },
+    (error) => {
+      console.log(' error from 1 then in 2 param: ', error);
+      return error + " 2";
+    })
+  .then((data) => {
+    console.log(data, 'then2 resolve');
+  })
+  .catch((error) => {
+    console.log('catch');
+    console.log(error);
+    return error;
+  })
+;*/
+
+/*
+
+alex.askFile()
+  .then(() => {
+    return new Promise((resolve) => {
+        setTimeout(() => {
+          resolve('  hello 1');
+        }, 1000);
+      }
+    );
+  })
+  .then((resolve) => {
+    console.log(resolve);
+    return new Promise((resolve) => {
+        setTimeout(() => {
+          resolve('hello 2');
+        }, 1000);
+      }
+    );
+  })
+  .then((res)=>{
+    console.log(res);
+  })
+;*/

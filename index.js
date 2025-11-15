@@ -60,8 +60,11 @@ a = 200;
 console.log('a: ', a);
 var a = 500;
 console.log('a: ', a);
-фи = 43;
+фи = 43;//! Это называется implicit global — "неявная глобальная переменная".
+//! такие переменные создавать строго не рекоммендуется
 console.log('фи: ', фи);
+console.log('фи: ', typeof фи);
+фи = 44;
 
 function someFunc() {
   const callback = (arg) => {
