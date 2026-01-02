@@ -1,4 +1,3 @@
-/*
 
 Window.a = 120;
   var a= 150;
@@ -19,4 +18,3 @@ console.log(a);
 console.log(b);
 console.log(c);
 console.log(d);
-*/
