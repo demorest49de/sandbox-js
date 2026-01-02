@@ -282,6 +282,7 @@ alex.askFile()
 ;*/
 
 
+/*
 const promise = alex.askFile();
 
 promise.then((res) => {
@@ -293,4 +294,4 @@ promise.then((res) => {
 
 promise.then((res) => {
   console.log(res);
-});
+});*/
